@@ -21,7 +21,7 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 //Code Here
-let evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+let evenNumbers  = mixedNumbers.filter(element => {return element%2==0})
 
 
 
@@ -42,11 +42,8 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
   function(element, index, wholeArray){}  Function Form
   (element, index, wholeArray)=>{}    Arrow Form
 */
-
 //Code Here
-let postTaxPrices // = prices.map(/* Provide Your Callback Here );
-
-
+let postTaxPrices  = prices.map((element,index,arr)=>{return 1.07*element} );
 
 ////////// PROBLEM 3 //////////
 
@@ -61,14 +58,11 @@ const populations = [8175133, 3792621, 2695598, 2100263];
   function(runningTotal, curElement, curIndex, wholeArray){} Function Form
   (runningTotal, curElement, curIndex, wholeArray)=>{} Arrow Form
 */
-
 //Code Here
-let totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
 
-
+let totalPopulation   = populations.reduce((sum,curElement) => {return sum+curElement})
 
 ////////// PROBLEM 4 //////////
-
 // Do not edit the code below.
 const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulbabunny","CP":135},
 {"monster":"Bulbabunny","CP":250},{"monster":"Ponylopse","CP":277},{"monster":"Ponylopse","CP":184},
@@ -89,9 +83,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-let myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
-
-
+let myStrongest  = monstersInYourPocket.filter((element,index,arr)=>{return element.CP>200 })
 
 ////////// PROBLEM 5 //////////
 
@@ -101,14 +93,13 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 {"price":72,"tax":0.14},{"price":51,"tax":0.09},{"price":89,"tax":0.15},
 {"price":48,"tax":0.13}];
 // Do not edit code above.
-
 /*
   Use a higher order method to get the sum of all the order totals after adding in the sales tax
 */
-
-let ordersTotal //Code Here
-
-
+var sum = 0;
+let ordersTotal = orders.map((element,index,arr)=>{
+  sum = element.price + element.tax
+})
 
 ////////// PROBLEM 6 //////////
 
@@ -125,7 +116,13 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 /*
   Use a high order method to create to get the sum of bobsTotal.
 */
-
-let bobsTotal //Code Here
-
+var sumd = 0;
+let bobsTotal = purchases.reduce((sum,curElement,index,arr)=>{
+    
+  if(curElement.owner=='Bob')
+  {
+    sumd += curElement.price;
+  }
+    return sumd  
+})
 
